@@ -21,7 +21,7 @@ namespace MonitorLibrary
         private MonitorSetting monitorSetting;
         public TaskbarControl()
         {
-            Options.MinHorizontalSize.Width = 200;
+            Options.MinHorizontalSize.Width = 150;
             InitializeComponent();
             StartMonitor();
             m_CPUCounter = new System.Diagnostics.PerformanceCounter();

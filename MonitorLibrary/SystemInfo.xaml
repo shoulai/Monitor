@@ -5,20 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonitorLibrary"
         mc:Ignorable="d"
-        Title="SystemInfo" Height="200" Width="300" 
+    Title="SystemInfo" Height="200" Width="300" 
         Topmost="True" 
         WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True"
         Background="Transparent">
     <Grid Margin="10">
-        <!--<Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#B2FDFDFD">
-            <Grid>
-                <Label Content="硬件监测" HorizontalAlignment="Left" Margin="107,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-                <Label Content="作者：幸运文字" HorizontalAlignment="Left" Margin="202,175,0,0" VerticalAlignment="Top" Width="96" Height="23" Foreground="#FF787878" FontSize="9"/>
-                <Label Content="CPU占用: 0%" x:Name="CPUInfo" HorizontalAlignment="Left" Margin="55,68,0,0" VerticalAlignment="Top" Foreground="#FF343434"/>
-                <Label Content="内存占用: 0%" x:Name="MemoryInfo" HorizontalAlignment="Left" Margin="55,108,0,0" VerticalAlignment="Top" Foreground="#FF343434"/>
-            </Grid>
-        </Border>-->
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>

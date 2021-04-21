@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonitorLibrary"
         mc:Ignorable="d"
-        Title="SystemInfo" Height="200" Width="300" Topmost="True" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True" Background="Transparent" OpacityMask="White" >
+   Title="SystemInfo" Height="200" Width="300" Topmost="True" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True" Background="Transparent" OpacityMask="White" >
     <Grid Background="Transparent">
         <Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#CCFDFDFD">
             <Grid>

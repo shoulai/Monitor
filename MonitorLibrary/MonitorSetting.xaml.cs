@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Security.Principal;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace MonitorLibrary
 {
     /// <summary>
-    /// MenuWindow.xaml 的交互逻辑
+    /// MonitorSetting.xaml 的交互逻辑
     /// </summary>
     public partial class MonitorSetting : Window
     {
@@ -48,7 +56,7 @@ namespace MonitorLibrary
                 return;
             }
             Err.Content = "";
-            monitor.MonitorInfo.Foreground = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(taskFontColor)); 
+            monitor.MonitorInfo.Foreground = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(taskFontColor));
         }
     }
 
@@ -89,7 +97,7 @@ namespace MonitorLibrary
                 p.Close();
                 p.Dispose();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 result = false;
             }
@@ -137,5 +145,5 @@ namespace MonitorLibrary
             }
             return result;
         }
+        }
     }
-}

@@ -16,15 +16,15 @@ namespace Monitor
     /// </summary>
     public partial class App : Application
     {
-
-        public void Run()
+        protected override void OnStartup(StartupEventArgs e)
         {
-
+            base.OnStartup(e);
             ExecCMD("/nologo /unregister  \"{0}\"", "MonitorLibrary.dll");
             ExecCMD("/nologo /codebase   \"{0}\"", "MonitorLibrary.dll");
             Thread.Sleep(1000);
             Environment.Exit(0);
         }
+     
 
         public static void ExecCMD(string args, string fileName)
         {

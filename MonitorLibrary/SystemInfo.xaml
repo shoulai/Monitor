@@ -5,15 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonitorLibrary"
         mc:Ignorable="d"
-        Title="SystemInfo" Height="200" Width="300" Topmost="True" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True" Background="Transparent" OpacityMask="White" >
-    <Grid Background="Transparent">
-        <Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#B2FDFDFD">
+        Title="SystemInfo" Height="200" Width="300" 
+        Topmost="True" 
+        WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid Margin="10">
+        <!--<Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#B2FDFDFD">
             <Grid>
                 <Label Content="硬件监测" HorizontalAlignment="Left" Margin="107,10,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="作者：幸运文字" HorizontalAlignment="Left" Margin="202,175,0,0" VerticalAlignment="Top" Width="96" Height="23" Foreground="#FF787878" FontSize="9"/>
                 <Label Content="CPU占用: 0%" x:Name="CPUInfo" HorizontalAlignment="Left" Margin="55,68,0,0" VerticalAlignment="Top" Foreground="#FF343434"/>
                 <Label Content="内存占用: 0%" x:Name="MemoryInfo" HorizontalAlignment="Left" Margin="55,108,0,0" VerticalAlignment="Top" Foreground="#FF343434"/>
             </Grid>
-        </Border>
+        </Border>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Rectangle  Fill="White" Grid.RowSpan="3">
+            <Rectangle.Effect>
+                <DropShadowEffect  BlurRadius="5" ShadowDepth="1" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Width="90" Height="90" Grid.Column="0">
+                <Border.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Images/cpu.png"/>
+                </Border.Background>
+                <TextBlock x:Name="CPUInfo" Foreground="White" Text="50" Margin="40,10,0,0" FontWeight="Black" FontSize="18"/>
+            </Border>
+            <Border Width="90" Height="90" Grid.Column="1">
+                <Border.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Images/memory.png"/>
+                </Border.Background>
+                <TextBlock x:Name="MemoryInfo" Foreground="White" Text="50" Margin="35,42,0,0" FontWeight="Black" FontSize="18"/>
+            </Border>
+        </Grid>
+        <TextBlock Grid.Row="0" Text="硬件监测" Padding="4"/>
+        <TextBlock Grid.Row="2" Text="作者：幸运文字 QQ群：340500857" HorizontalAlignment="Right" Padding="4"/>
     </Grid>
 </Window>

@@ -69,8 +69,10 @@ namespace MonitorLibrary
         {
             int cpu = GetCPU() + 1;
             int memory = GetMemory();
-            systemInfo.CPUInfo.Content = "CPU占用： " + (cpu < 10 ? "0" : "") + cpu + "%";
-            systemInfo.MemoryInfo.Content = "内存占用： " + memory + "%";
+            //systemInfo.CPUInfo.Content = "CPU占用： " + (cpu < 10 ? "0" : "") + cpu + "%";
+            //systemInfo.MemoryInfo.Content = "内存占用： " + memory + "%";
+            systemInfo.CPUInfo.Text = (cpu < 10 ? "0" : "") + cpu+ "%";
+            systemInfo.MemoryInfo.Text = +memory + "%";
             MonitorInfo.Text = "CPU: " + (cpu < 10 ? "0" : "") + cpu + "%  内存: " + memory + "%";
         }
 

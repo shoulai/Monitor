@@ -101,6 +101,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MonitorAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MonitorSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +119,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonitorAbout.xaml.cs">
+      <DependentUpon>MonitorAbout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MonitorSetting.xaml.cs">
       <DependentUpon>MonitorSetting.xaml</DependentUpon>
     </Compile>
@@ -150,6 +157,12 @@
   <ItemGroup>
     <Resource Include="Images\cpu.png" />
     <Resource Include="Images\memory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cpu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="memory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

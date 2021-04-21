@@ -19,6 +19,7 @@ namespace MonitorLibrary
     {
         private SystemInfo systemInfo;
         private MonitorSetting monitorSetting;
+        private MonitorAbout monitorAbout = new MonitorAbout();
         public TaskbarControl()
         {
             Options.MinHorizontalSize.Width = 150;
@@ -37,6 +38,9 @@ namespace MonitorLibrary
             monitorSetting.Left = x;
             monitorSetting.Top = y;
             monitorSetting.Visibility = Visibility.Hidden;
+            monitorAbout.Left = x;
+            monitorAbout.Top = y;
+            monitorAbout.Visibility = Visibility.Hidden;
         }
 
 
@@ -171,6 +175,11 @@ namespace MonitorLibrary
         private void OpenSetting(object sender, RoutedEventArgs e)
         {
             monitorSetting.Visibility = Visibility.Visible;
+        }
+
+        private void MonitorAbout(object sender, RoutedEventArgs e)
+        {
+            monitorAbout.Visibility = Visibility.Visible;
         }
     }
 

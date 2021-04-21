@@ -42,7 +42,7 @@
                     </Style>
                 </ContextMenu.Resources>
                     <MenuItem Header="设置" Background="White" BorderBrush="White" OpacityMask="White" Click="OpenSetting" />
-                    <!--<MenuItem Header="关于" Background="White" BorderBrush="White" OpacityMask="White" />-->
+                    <MenuItem Header="关于" Background="White" BorderBrush="White" OpacityMask="White" Click="MonitorAbout" />
                     <MenuItem Header="退出"  Background="White" BorderBrush="White" OpacityMask="White" Click="ExitMonitor"/>
                 </ContextMenu>
             </Grid.ContextMenu>

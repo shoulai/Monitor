@@ -11,12 +11,6 @@
         AllowsTransparency="True"
         Background="Transparent">
     <Grid Margin="10">
-       
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
         <Rectangle  Fill="White" Grid.RowSpan="3">
             <Rectangle.Effect>
                 <DropShadowEffect  BlurRadius="5" ShadowDepth="1" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" />
@@ -29,18 +23,17 @@
             </Grid.ColumnDefinitions>
             <Border Width="90" Height="90" Grid.Column="0">
                 <Border.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/Images/cpu.png"/>
+                    <ImageBrush ImageSource="cpu.png"/>
                 </Border.Background>
-                <TextBlock x:Name="CPUInfo" Foreground="White" Text="50" Margin="40,10,0,0" FontWeight="Black" FontSize="18"/>
+                <TextBlock x:Name="CPUInfo" Foreground="White" Text="50%" Margin="34,16,23,48" FontWeight="Black" RenderTransformOrigin="0.789,0.548"/>
             </Border>
             <Border Width="90" Height="90" Grid.Column="1">
                 <Border.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/Images/memory.png"/>
+                    <ImageBrush ImageSource="memory.png"/>
                 </Border.Background>
-                <TextBlock x:Name="MemoryInfo" Foreground="White" Text="50" Margin="35,42,0,0" FontWeight="Black" FontSize="18"/>
+                <TextBlock x:Name="MemoryInfo" Foreground="White" Text="50%" Margin="34,48,25,16" FontWeight="Black"/>
             </Border>
         </Grid>
-        <TextBlock Grid.Row="0" Text="硬件监测" Padding="4"/>
-        <TextBlock Grid.Row="2" Text="作者：幸运文字 QQ群：340500857" HorizontalAlignment="Right" Padding="4"/>
+        <TextBlock  Text="硬件监测" Margin="109,6,119,158" FontSize="10" Foreground="#FF555555" />
     </Grid>
 </Window>

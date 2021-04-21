@@ -1,0 +1,22 @@
+﻿<Window x:Class="MonitorLibrary.MonitorAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorLibrary"
+        mc:Ignorable="d"
+        Title="MonitorAbout" Height="200" Width="300" 
+        Topmost="True" 
+        WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid Background="Transparent">
+        <Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#E5FDFDFD">
+            <Grid>
+                <Label Content="作者: 闫驚鏵" Margin="60,60,0,0" Foreground="#FF686868"/>
+                <Label Content="作者: 幸运文字" Margin="60,90,0,0" Foreground="#FF686868"/>
+                <Label Content="QQ裙: 340500857" Margin="60,120,0,0" Foreground="#FF686868"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

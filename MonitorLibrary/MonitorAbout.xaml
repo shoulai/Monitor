@@ -10,7 +10,7 @@
         WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True"
         Background="Transparent">
-    <Grid Background="Transparent">
+    <Grid Background="Transparent" >
         <Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#E5FDFDFD">
             <Grid>
                 <Label Content="作者: 闫驚鏵" Margin="60,60,0,0" Foreground="#FF686868"/>
@@ -18,5 +18,14 @@
                 <Label Content="QQ裙: 340500857" Margin="60,120,0,0" Foreground="#FF686868"/>
             </Grid>
         </Border>
+        <Button Content="X" HorizontalAlignment="Left" Margin="275,0,0,0"  VerticalAlignment="Top" Width="25" Height="30" Background="#00DDDDDD" BorderBrush="#00707070" Click="CloseMonitorAbout">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderThickness="1"  CornerRadius="3" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

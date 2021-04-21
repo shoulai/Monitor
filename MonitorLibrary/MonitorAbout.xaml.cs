@@ -23,5 +23,10 @@ namespace MonitorLibrary
         {
             InitializeComponent();
         }
+
+        private void CloseMonitorAbout(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Hidden;
+        }
     }
 }

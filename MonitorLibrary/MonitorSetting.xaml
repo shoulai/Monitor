@@ -9,16 +9,16 @@
     <Grid Background="Transparent">
         <Border BorderThickness="1" BorderBrush="#332C80E6"  CornerRadius="6" Background="#D8FDFDFD">
             <Grid>
-                <Label Margin="58,61,173,108"  Content="字体颜色: " Foreground="#FF1B1B1B"/>
+                <Label Margin="55,82,176,87"  Content="字体颜色: " Foreground="#FF1B1B1B"/>
                 <Label x:Name="Err" Margin="122,84,54,87"  Content="" Foreground="red" FontSize="10"/>
-                <TextBox x:Name="taskFontColor" HorizontalAlignment="Left" Height="20" Margin="122,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122">
+                <TextBox x:Name="taskFontColor" HorizontalAlignment="Left" Height="20" Margin="122,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="2"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <Button Content="关闭" HorizontalAlignment="Left" Margin="58,159,0,0" VerticalAlignment="Top" Width="61" Height="20" Background="#CC0875E2" Foreground="White" BorderBrush="#00707070" RenderTransformOrigin="-1.724,4.368" Click="Button_Click_1">
+                <Button Content="X" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Top" Width="23" Height="19" Background="#0089A4BF" Foreground="#FF707070" BorderBrush="#00707070" RenderTransformOrigin="-1.724,4.368" Click="Button_Click_1">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border BorderThickness="1"  CornerRadius="3" Background="{TemplateBinding Background}">
@@ -27,7 +27,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button x:Name="SettingFontColor" Content="设置" HorizontalAlignment="Left" Margin="191,159,0,0" VerticalAlignment="Top" Width="66" Background="#FFFF2323" Foreground="White" BorderBrush="#00707070" Click="SettingFontColor_Click" Height="20">
+                <Button x:Name="SettingFontColor" Content="确定" HorizontalAlignment="Left" Margin="114,152,0,0" VerticalAlignment="Top" Width="66" Background="#FF2C6FFF" Foreground="White" BorderBrush="#00707070" Click="SettingFontColor_Click" Height="20">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border BorderThickness="1"  CornerRadius="3" Background="{TemplateBinding Background}">

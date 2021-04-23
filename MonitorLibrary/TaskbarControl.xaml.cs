@@ -1,9 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
+using System.Windows.Media;
 using WindowsDeskBand.DeskBand.BandParts;
 using WPFBand;
 
@@ -17,13 +21,42 @@ namespace MonitorLibrary
     [BandRegistration(Name = "Monitor", ShowDeskBand = true)]
     public partial class TaskbarControl : WPFBandControl
     {
+
+        [DllImport("shell32.dll")]
+        private static extern IntPtr SHAppBarMessage(int msg, ref APPBARDATA data);
+
+        [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
+        private static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
+        private struct APPBARDATA
+        {
+            public int cbSize;
+            public IntPtr hWnd;
+            public int uCallbackMessage;
+            public int uEdge;
+            public RECT rc;
+            public IntPtr lParam;
+        }
+
+        private struct RECT
+        {
+            public int left, top, right, bottom;
+        }
+        private const int ABM_GETTASKBARPOS = 5;
+
+
         private SystemInfo systemInfo;
         private MonitorSetting monitorSetting;
         private MonitorAbout monitorAbout = new MonitorAbout();
         public TaskbarControl()
         {
-            Options.MinHorizontalSize.Width = 150;
+            Options.MinHorizontalSize.Width = 70;
+            System.Drawing.Color taskBarColour = GetColourAt(GetTaskbarPosition().Location);
+            this.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(taskBarColour.R, taskBarColour.G, taskBarColour.B));
             InitializeComponent();
+            if (IsLight())
+                MonitorInfo.Foreground = System.Windows.Media.Brushes.Black;
+            else
+                MonitorInfo.Foreground = System.Windows.Media.Brushes.White;
             StartMonitor();
             m_CPUCounter = new System.Diagnostics.PerformanceCounter();
             m_CPUCounter.CategoryName = "Processor";
@@ -77,7 +110,7 @@ namespace MonitorLibrary
             //systemInfo.MemoryInfo.Content = "内存占用： " + memory + "%";
             systemInfo.CPUInfo.Text = (cpu < 10 ? "0" : "") + cpu+ "%";
             systemInfo.MemoryInfo.Text = +memory + "%";
-            MonitorInfo.Text = "CPU: " + (cpu < 10 ? "0" : "") + cpu + "%  内存: " + memory + "%";
+            MonitorInfo.Text = string.Format("   CPU: " + (cpu < 10 ? "0" : "") + cpu + "%  \n  内存: " + memory + "%");
         }
 
 
@@ -180,6 +213,50 @@ namespace MonitorLibrary
         private void MonitorAbout(object sender, RoutedEventArgs e)
         {
             monitorAbout.Visibility = Visibility.Visible;
+        }
+
+        private static Rectangle GetTaskbarPosition()
+        {
+            APPBARDATA data = new APPBARDATA();
+            data.cbSize = Marshal.SizeOf(data);
+
+            IntPtr retval = SHAppBarMessage(ABM_GETTASKBARPOS, ref data);
+            if (retval == IntPtr.Zero)
+            {
+                throw new Win32Exception("error");
+            }
+
+            return new Rectangle(data.rc.left, data.rc.top, data.rc.right - data.rc.left, data.rc.bottom - data.rc.top);
+        }
+
+        private static System.Drawing.Color GetColourAt(System.Drawing.Point location)
+        {
+            using (Bitmap screenPixel = new Bitmap(1, 1, System.Drawing.Imaging.PixelFormat.Format32bppArgb))
+            using (Graphics gdest = Graphics.FromImage(screenPixel))
+            {
+                using (Graphics gsrc = Graphics.FromHwnd(IntPtr.Zero))
+                {
+                    IntPtr hSrcDC = gsrc.GetHdc();
+                    IntPtr hDC = gdest.GetHdc();
+                    int retval = BitBlt(hDC, 0, 0, 1, 1, hSrcDC, location.X, location.Y, (int)CopyPixelOperation.SourceCopy);
+                    gdest.ReleaseHdc();
+                    gsrc.ReleaseHdc();
+                }
+
+                return screenPixel.GetPixel(0, 0);
+            }
+        }
+        bool IsLight() 
+        {
+            bool isLightMode = true;
+            try
+            {
+                var v = Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "1");
+                if (v != null && v.ToString() == "0")
+                    isLightMode = false;
+            }
+            catch { }
+            return isLightMode;
         }
     }
 

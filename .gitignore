@@ -5,3 +5,7 @@
 /bin/Debug
 /MonitorLibrary/obj/Debug
 /Monitor/obj/Debug
+/Monitor/obj
+/packages
+/MonitorLibrary/obj
+/.vs

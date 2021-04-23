@@ -6,7 +6,7 @@
              xmlns:db="clr-namespace:WPFBand;assembly=WPFBand" x:Name="Taskbar" 
              mc:Ignorable="d"  
              x:Class="MonitorLibrary.TaskbarControl"  >
-    <Grid  Background="#00FFFFFF"  VerticalAlignment="Center" HorizontalAlignment="Center" MouseMove="ShowSystemInfo" MouseLeave="HideSystemInfo">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MouseMove="ShowSystemInfo" MouseLeave="HideSystemInfo">
         <TextBlock Text="幸运文字" VerticalAlignment="Center" HorizontalAlignment="Center"    x:Name="MonitorInfo" Foreground="#FFFFFFFF" />
             <Grid.ContextMenu >
             <ContextMenu Background="#CCFFFFFF">

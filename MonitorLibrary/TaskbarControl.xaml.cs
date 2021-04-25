@@ -50,13 +50,14 @@ namespace MonitorLibrary
         public TaskbarControl()
         {
             Options.MinHorizontalSize.Width = 70;
-            System.Drawing.Color taskBarColour = GetColourAt(GetTaskbarPosition().Location);
-            this.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(taskBarColour.R, taskBarColour.G, taskBarColour.B));
+            //System.Drawing.Color taskBarColour = GetColourAt(GetTaskbarPosition().Location);
+            //this.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(taskBarColour.R, taskBarColour.G, taskBarColour.B));
             InitializeComponent();
+
             if (IsLight())
-                MonitorInfo.Foreground = System.Windows.Media.Brushes.Black;
+                MonitorInfo.Foreground = (System.Windows.Media.Brush)new BrushConverter().ConvertFromString("#FF3E3E3E"); 
             else
-                MonitorInfo.Foreground = System.Windows.Media.Brushes.White;
+                MonitorInfo.Foreground = (System.Windows.Media.Brush)new BrushConverter().ConvertFromString("#FFFFFF");
             StartMonitor();
             m_CPUCounter = new System.Diagnostics.PerformanceCounter();
             m_CPUCounter.CategoryName = "Processor";
@@ -251,7 +252,7 @@ namespace MonitorLibrary
             bool isLightMode = true;
             try
             {
-                var v = Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "1");
+                var v = Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "SystemUsesLightTheme", "1");
                 if (v != null && v.ToString() == "0")
                     isLightMode = false;
             }

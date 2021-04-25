@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:db="clr-namespace:WPFBand;assembly=WPFBand" x:Name="Taskbar" 
-             mc:Ignorable="d"  
+             mc:Ignorable="d" TextOptions.TextFormattingMode="Display"
              x:Class="MonitorLibrary.TaskbarControl"  >
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MouseMove="ShowSystemInfo" MouseLeave="HideSystemInfo">
-        <TextBlock Text="幸运文字" VerticalAlignment="Center" HorizontalAlignment="Center"    x:Name="MonitorInfo" Foreground="#FFFFFFFF" />
+        <TextBlock Text="幸运文字" VerticalAlignment="Center" HorizontalAlignment="Center"    x:Name="MonitorInfo" Foreground="#FF3E3E3E" />
             <Grid.ContextMenu >
             <ContextMenu Background="#CCFFFFFF">
                 <ContextMenu.Resources>
